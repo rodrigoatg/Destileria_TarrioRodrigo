@@ -4,12 +4,11 @@ import { Link } from 'react-router-dom'
 export const Navbar = () => {
   return (
     <div>
-        <Link to ='/'>
-            <img src= './testicono.jpg' width={50} />
-        </Link>
         <nav className="navbar navbar-expand-lg bg-light">
             <div className="container-fluid">
-                <a className="navbar-brand" href="#">Navbar</a>
+                <Link  className="navbar-brand" to ='/Inicio'>
+                    <img src= './testicono.jpg' width={50} alt="Icono" />
+                </Link>
                 <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span className="navbar-toggler-icon"></span>
                 </button>
@@ -19,10 +18,10 @@ export const Navbar = () => {
                             <Link className="nav-link active" aria-current="page" to= "/Inicio">Inicio</Link>
                         </li>
                         <li className="nav-item">
-                            <Link className="nav-link" to= "/Tienda">Tienda</Link>
+                            <Link className="nav-link" to= '/Tienda'>Tienda</Link>
                         </li>
                         <li className="nav-item">
-                            <Link className="nav-link" to= "/Ofertas">Ofertas</Link>
+                            <Link className="nav-link" to= '/Ofertas'>Ofertas</Link>
                         </li>
                         
                     </ul>
