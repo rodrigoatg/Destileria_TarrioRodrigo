@@ -5,6 +5,7 @@ import { Inicio } from './components/paginas/Inicio';
 import { Ofertas } from './components/paginas/Ofertas';
 import { Tienda } from './components/paginas/Tienda';
 import ItemListContainer from './components/ItemListContainer';
+import ItemDetailContainer from './components/ItemDetailContainer';
 
 
 
@@ -20,7 +21,8 @@ function App() {
             </Routes>
           </Navbar>
       </Router>
-      <ItemListContainer />
+      <ItemDetailContainer />
+      {/* <ItemListContainer /> */}
 
     </div>
     
