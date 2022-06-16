@@ -9,17 +9,16 @@ export default function ItemList() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
   const [resultado, setResultado] = useState([]);
-
+  
   useEffect(() => {
     const cargandoItems = new Promise((res, rej) => {
         setTimeout( () =>{
           res([
-            { id: 'sarasa' , title: 'item1', description: 'este es el item 1', price: '10', pictureUrl: 'logo192.png' },
-            { id: 'sarasa2' , title: 'item2', description: 'este es el item 2', price: '20', pictureUrl: 'logo192.png' },
+            { id: '1' , title: 'item1', description: 'este es el item 1', category: 'cat1', price: '10', pictureUrl: 'logo192.png' },
+            { id: '2' , title: 'item2', description: 'este es el item 2', category: 'cat2', price: '20', pictureUrl: 'logo192.png' },
           ]);
         }, 2000);
     })
-  
 
     cargandoItems
       .then((resultado) => {
@@ -37,18 +36,20 @@ export default function ItemList() {
         setLoading(false);
       })
   }, []);
-  return (
 
+  
+  return (
   <>
     <div>{loading && 'Loading...'}</div>
     <div>{error && 'Ocurrio un error cargando los items.'}</div>
     <div>{resultado &&
+    //filtro los resultados segun categoria
     <>
-      <div>
-        <ul>
+      <div className='container'>
+        <ul className='d-flex flex-row list-unstyled'>
           {resultado.map((item) => (
               
-                <li key={item.id}>
+                <li className='px-5 mx-2' key={item.id}>
                   <Item id = {item.id} title ={item.title} description = {item.description} price = {item.price} pictureUrl = {item.pictureUrl} />
                 </li>
               

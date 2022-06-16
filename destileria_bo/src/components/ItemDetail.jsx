@@ -1,6 +1,7 @@
 import React from 'react'
 
-export default function ItemDetail({id, title, pictureUrl, description, price}) {
+export default function ItemDetail({title, pictureUrl, description, price}) {
+  
   return (
       //Desarrolla la vista de detalle expandida del producto con su imagen, titulo, descripcion y precio
     <>

@@ -1,11 +1,10 @@
 import React from 'react'
-import ItemCount from './ItemCount'
 import ItemList from './ItemList'
 
 export default function ItemListContainer() {
   return (
     <>
-        <div>
+        <div className='container-fluid'>
             <p> ¡Esta es su lista de items!</p>
             <br /><br /> 
             <ItemList />
