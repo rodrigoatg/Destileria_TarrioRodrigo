@@ -1,13 +1,11 @@
 import React from 'react'
+import ItemListContainer from '../ItemListContainer'
 
 export const Inicio = () => {
   return (
     <>
       <div>
-          <br></br>
-          <h1>Inicio</h1>
-          <br></br>
-          <p>sarasasas</p>
+          <ItemListContainer />
       </div>
     </>
   )
