@@ -10,7 +10,7 @@ export default function ItemDetailContainer() {
       const cargandoItems = new Promise((res, rej) => {
           setTimeout( () =>{
             res(
-              { id: 'UnicSarasa' , title: 'Item Detallado', description: 'este es el item en su forma detalle', price: '100', pictureUrl: '/logo192.png' },
+              { id: 'UnicSarasa' , title: 'Item Detallado', description: 'este es el item en su forma detalle', price: '100', stock: 100, pictureUrl: '/logo192.png' },
             );
           }, 2000);
       })

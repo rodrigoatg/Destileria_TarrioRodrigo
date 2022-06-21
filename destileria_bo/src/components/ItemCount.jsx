@@ -8,29 +8,43 @@ export default function ItemCount(props) {
     //change del textbox
     const handleInputChange = (event) => {
         if(parseInt(event.target.value) <= props.stock){
-            setCantidadItems(parseInt(event.target.value))
+            setCantidadItems(parseInt(event.target.value));
         }
+        
     }
 
+    //funcion que suma o resta
+    const btnChange = (add) =>{
+        if(add){
+            setCantidadCarrito(cantidadCarrito + calcStock(add, props.stock, cantidadCarrito ,cantidadItems));
+        }else{
+            setCantidadCarrito(cantidadCarrito - calcStock(add, props.stock, cantidadCarrito ,cantidadItems));
+        }
+    }
+    
     return (
         <>
             <div>
-                <button title='remover' onClick ={() => setCantidadCarrito(cantidadCarrito - calcStock(false, props.stock, cantidadCarrito ,cantidadItems))}>
+                <button title='remover' onClick ={() => btnChange(false)}>
                         -
                 </button>  
 
                 <input
                     placeholder = "Ingrese cantidad"
-                    type = "number"
+                    type = "text"
                     name = "cantidadItems"
                     value={cantidadItems}
                     onChange ={handleInputChange}
                 ></input>
-                <button title='agregar' onClick ={() => setCantidadCarrito(cantidadCarrito + calcStock(true, props.stock, cantidadCarrito ,cantidadItems))}>
+                <button title='agregar' onClick ={() => btnChange(true)}>
                     +
                 </button>  
-                
-                {/* esto de abajo es para probar */}
+                <br /><br />
+                <button className='btn btn-outline-dark' title='finAgregar' onClick ={() => props.onAdd(cantidadItems)}>
+                    Agregar al Carrito {cantidadCarrito} items
+                </button>
+
+                {/* esto de abajo es para probar
                 <br></br>
                 <hr />
                 <p>stock: </p>{props.stock}
@@ -38,7 +52,7 @@ export default function ItemCount(props) {
                 <hr />
                 <p>cantidad textbox: </p>{cantidadItems}
                 <hr></hr>
-                <p>cantidad carrito: </p>{cantidadCarrito}
+                <p>cantidad carrito: </p>{cantidadCarrito} */}
             </div>
         </>
   )
