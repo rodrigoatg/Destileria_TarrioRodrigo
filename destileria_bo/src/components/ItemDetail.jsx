@@ -1,15 +1,21 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import ItemCount from './ItemCount'
 import {useState} from 'react';
+import { MyContext } from '../context/CartContext';
 
-export default function ItemDetail({title, pictureUrl, description, price, stock}) {
+export default function ItemDetail({id, title, pictureUrl, description, price, stock}) {
   const [stockLocal, setStockLocal] = useState(stock);
   const [cantidadItem, setCantidadItem] = useState(10);
   const [mostrarItemCount, setMostrarItemCount] = useState(true);
 
+  const {addItem} = useContext(MyContext);
+
+  let item = {id: id, nombre: title, imagen: pictureUrl, descripcion: description, precio:price, stock: stock};
+
   function onAdd(cantidad){
-    setCantidadItem(cantidadItem + cantidad);
-    setStockLocal(stockLocal - cantidadItem );
+    addItem(item, cantidad);
+    // setCantidadItem(cantidadItem + cantidad);
+    // setStockLocal(stockLocal - cantidadItem );
     setMostrarItemCount(false);
   }
 
@@ -26,10 +32,6 @@ export default function ItemDetail({title, pictureUrl, description, price, stock
         <p>{description}</p>
         <br />
         <p>$ {price}</p>
-        <br />
-        <p>Cantidad: {cantidadItem}</p>
-        <br />
-        <p>Stock: {stockLocal}</p>
         <br />
         <br />
         {mostrarItemCount ? <ItemCount stock={stockLocal} initial= {cantidadItem} onAdd={onAdd} /> :  <button className='text-decoration-none btn btn-outline-dark' onClick={ () => setMostrarItemCount(true)}> Finalizar Compra </button>}
