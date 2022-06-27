@@ -14,8 +14,8 @@ export default function ItemList() {
     const cargandoItems = new Promise((res, rej) => {
         setTimeout( () =>{
           res([
-            { id: '1' , title: 'item1', description: 'este es el item 1', category: 'cat1', price: '10', pictureUrl: 'logo192.png' },
-            { id: '2' , title: 'item2', description: 'este es el item 2', category: 'cat2', price: '20', pictureUrl: 'logo192.png' },
+            { id: '1' , title: 'item1', description: 'este es el item 1', category: 'cat1', price: '10', pictureUrl: '/logo192.png' },
+            { id: '2' , title: 'item2', description: 'este es el item 2', category: 'cat2', price: '20', pictureUrl: '/logo192.png' },
           ]);
         }, 2000);
     })

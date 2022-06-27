@@ -5,7 +5,7 @@ export const MyContext = createContext({});
 export default function CartContext({children}) {
     
   const [carrito, setCarrito] = useState([]);
-  //supongo un objeto que es [id, nombre, precio, cantidad]
+  //supongo un objeto que es [id, nombre, precio, quantity]
 
 
   function addItem(item, quantity){
