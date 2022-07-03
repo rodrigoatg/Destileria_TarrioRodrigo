@@ -4,6 +4,7 @@ import { MyContext } from '../context/CartContext';
 
 export default function Cart() {
     const {carrito} = useContext(MyContext);
+    const {removeItem} = useContext(MyContext);
 
     let contenido = "";
 
@@ -12,12 +13,13 @@ export default function Cart() {
         carrito.forEach(element => {
             contenido = <>
                 {element[1]} {'x ('} {element[3]} {") Precio Unitario: "} {element[2]}
+                <button onClick={() => removeItem(element[0])}>Eliminar</button>
                 <br />
             </>
         });
     }else{
         contenido = <>
-            <h2>El carrito se encuentra vacío </h2> 
+            <h2>El crrito se encuentra vacío </h2> 
             <h3>
                 <Link className='text-decoration-none btn btn-outline-dark' to={'/tienda/'}>
                     Comience a comprar

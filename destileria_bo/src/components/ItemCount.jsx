@@ -7,10 +7,18 @@ export default function ItemCount(props) {
     
     //change del textbox
     const handleInputChange = (event) => {
-        if(parseInt(event.target.value) <= props.stock){
-            setCantidadItems(parseInt(event.target.value));
-        }
+        setCantidadItems(parseInt(event.target.value));
+        // if(parseInt(event.target.value) <= props.stock){
+        //     setCantidadItems(parseInt(event.target.value));
+        // }
         
+    }
+
+    //Boton agregar
+    const handleBtn = () => {
+        props.setCantidadItem(parseInt(cantidadCarrito)); 
+        props.setStockLocal(parseInt(props.stock) - parseInt(cantidadCarrito));
+        props.onAdd();
     }
 
     //funcion que suma o resta
@@ -40,7 +48,7 @@ export default function ItemCount(props) {
                     +
                 </button>  
                 <br /><br />
-                <button className='btn btn-outline-dark' title='finAgregar' onClick ={() => props.onAdd(cantidadItems)}>
+                <button className='btn btn-outline-dark' title='finAgregar' onClick ={() => handleBtn()}>
                     Agregar al Carrito {cantidadCarrito} items
                 </button>
 
@@ -79,3 +87,4 @@ const calcStock = (add, stock, cantidadCarrito, cantidadItems ) => {
     }
 
 }
+

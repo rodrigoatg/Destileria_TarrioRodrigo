@@ -12,8 +12,8 @@ export default function ItemDetail({id, title, pictureUrl, description, price, s
 
   let item = {id: id, nombre: title, imagen: pictureUrl, descripcion: description, precio:price, stock: stock};
 
-  function onAdd(cantidad){
-    addItem(item, cantidad);
+  function onAdd(){
+    addItem(item, cantidadItem);
     // setCantidadItem(cantidadItem + cantidad);
     // setStockLocal(stockLocal - cantidadItem );
     setMostrarItemCount(false);
@@ -34,7 +34,7 @@ export default function ItemDetail({id, title, pictureUrl, description, price, s
         <p>$ {price}</p>
         <br />
         <br />
-        {mostrarItemCount ? <ItemCount stock={stockLocal} initial= {cantidadItem} onAdd={onAdd} /> :  <button className='text-decoration-none btn btn-outline-dark' onClick={ () => setMostrarItemCount(true)}> Finalizar Compra </button>}
+          {mostrarItemCount ? <ItemCount stock={stockLocal} initial= {cantidadItem} stockLocal={stockLocal} setStockLocal={setStockLocal} cantidadItem={cantidadItem} setCantidadItem={setCantidadItem} onAdd={onAdd} /> :  <button className='text-decoration-none btn btn-outline-dark' onClick={ () => setMostrarItemCount(true)}> Finalizar Compra </button>}
         <hr />
     </div>
   </>

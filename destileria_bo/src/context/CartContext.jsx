@@ -11,11 +11,12 @@ export default function CartContext({children}) {
   function addItem(item, quantity){
     //agegar cierta cant de un item al carrito
     let found = false;
+    
     for (let i=0; i < carrito.length; i++)
     {
-      if(carrito[i].id === item.id){
+      if(carrito[i][0] === item.id){
         found = true;
-        carrito[i].quantity += quantity 
+        carrito[i][3] += parseInt(quantity);
       }
     }
     if (!found){
