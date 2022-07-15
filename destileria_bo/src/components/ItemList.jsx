@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import { collection, getDocs, getFirestore } from "firebase/firestore"
 import Item from './Item'
 
 export default function ItemList() {
@@ -11,13 +12,18 @@ export default function ItemList() {
   const [resultado, setResultado] = useState([]);
   
   useEffect(() => {
+    const db = getFirestore();
+
+    const itemsCollection = collection(db, "items");
+    
     const cargandoItems = new Promise((res, rej) => {
-        setTimeout( () =>{
-          res([
-            { id: '1' , title: 'item1', description: 'este es el item 1', category: 'cat1', price: '10', pictureUrl: '/logo192.png' },
-            { id: '2' , title: 'item2', description: 'este es el item 2', category: 'cat2', price: '20', pictureUrl: '/logo192.png' },
-          ]);
-        }, 2000);
+      res([
+        getDocs(itemsCollection).then(
+          (snapshot) => {
+            res = snapshot.docs.map( (doc) => ({id: doc.id, ...doc.data()}))
+          }
+        )
+      ]);
     })
 
     cargandoItems
