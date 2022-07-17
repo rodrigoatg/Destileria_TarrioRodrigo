@@ -1,6 +1,7 @@
 import React from 'react'
 import ItemList from './ItemList'
 
+//cambio a hacer: aca cargo todos los items, le paso la totalidad a itemList -> ItemList deberia filtrar+
 export default function ItemListContainer() {
   return (
     <>

@@ -1,15 +1,31 @@
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import './App.css';
-import { BrowserRouter, Routes, Route} from 'react-router-dom';
+import Cart from './components/Cart';
+import ItemDetailContainer from './components/ItemDetailContainer';
+import ItemListContainer from './components/ItemListContainer';
 import { Navbar } from './components/navegacion/Navbar';
 import { Inicio } from './components/paginas/Inicio';
 import { Ofertas } from './components/paginas/Ofertas';
-import { Tienda } from './components/paginas/Tienda';
-import ItemListContainer from './components/ItemListContainer';
-import ItemDetailContainer from './components/ItemDetailContainer';
 import CartContext from './context/CartContext';
-import Cart from './components/Cart';
+// Import the functions you need from the SDKs you need
+import { initializeApp } from 'firebase/app';
+import NewItemDetailContainer from './components/NewItemDetailContainer';
 
 function App() {
+// TODO: Add SDKs for Firebase products that you want to use
+// https://firebase.google.com/docs/web/setup#available-libraries
+// Your web app's Firebase configuration
+const firebaseConfig = {
+  apiKey: "AIzaSyDcXN_6nLuEwccy1bhtZVazvjcNXrv7s5c",
+  authDomain: "destileriabo-tarrio.firebaseapp.com",
+  projectId: "destileriabo-tarrio",
+  storageBucket: "destileriabo-tarrio.appspot.com",
+  messagingSenderId: "472316988263",
+  appId: "1:472316988263:web:396cd57721a023d6927dc2"
+};
+// Initialize Firebase
+initializeApp(firebaseConfig);
+
   return (
     <CartContext >
       <div className="App">
@@ -21,6 +37,7 @@ function App() {
               <Route path="/tienda" element={<ItemListContainer />} />
               <Route path='/ofertas' element={<Ofertas />} />
               <Route path='/item/:id' element={<ItemDetailContainer id/>} />
+              <Route path='/testitem/:id' element={<NewItemDetailContainer id/>} />
               <Route path='/category/:id' element={<ItemListContainer />} />
               <Route path='/cart' element={<Cart />} />
           </Routes>
