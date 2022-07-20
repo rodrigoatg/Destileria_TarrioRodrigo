@@ -3,6 +3,7 @@ import './App.css';
 import Cart from './components/Cart';
 import ItemDetailContainer from './components/ItemDetailContainer';
 import ItemListContainer from './components/ItemListContainer';
+import NewItemListContainer from './components/NewItemListContainer';
 import { Navbar } from './components/navegacion/Navbar';
 import { Inicio } from './components/paginas/Inicio';
 import { Ofertas } from './components/paginas/Ofertas';
@@ -32,12 +33,13 @@ initializeApp(firebaseConfig);
         <BrowserRouter>
           <Navbar />
           <Routes>
-              <Route path='/' element={<ItemListContainer />} />
+              <Route path='/' element={<NewItemListContainer />} />
               <Route path='/inicio' element={<Inicio />} />
               <Route path="/tienda" element={<ItemListContainer />} />
               <Route path='/ofertas' element={<Ofertas />} />
               <Route path='/item/:id' element={<ItemDetailContainer id/>} />
               <Route path='/testitem/:id' element={<NewItemDetailContainer id/>} />
+              <Route path='/categoria/:categoria' element={<NewItemListContainer categoria />} />
               <Route path='/category/:id' element={<ItemListContainer />} />
               <Route path='/cart' element={<Cart />} />
           </Routes>
