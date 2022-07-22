@@ -1,6 +1,7 @@
 import React, {useState, useEffect, useContext} from 'react'
 import { MyContext } from '../context/CartContext';
 import { BsFillCartFill } from "react-icons/bs";
+import CartIcon from './CartIcon';
 // import { FaShoppingCart } from "react-icons/fa";
 
 
@@ -21,7 +22,7 @@ export const CartWidget = (props) => {
       <>
         <div>
             {/* <FaShoppingCart size="1.5rem"/> */}
-            <BsFillCartFill size="1.7rem"/>
+            <CartIcon />
             
         </div>
       </>

@@ -21,7 +21,7 @@ export default function Item(props) {
           {/* <button className='btn btn-outline-dark' onClick={() => {<Link className='text-decoration-none' to={'/item/' + props.id}></Link>}}>
             Ver detalle del Producto
           </button> */}
-          <Link className='text-decoration-none btn btn-outline-dark' to={'/item/' + props.id}>
+          <Link className='text-decoration-none btn btn-outline-dark' to={`/item/${props.id}`}>
             Ver detalle del Producto
           </Link>
           <br />
