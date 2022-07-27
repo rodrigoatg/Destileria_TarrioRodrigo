@@ -1,6 +1,6 @@
 import React, { createContext, useState } from 'react'
 
-export const MyContext = createContext({});
+export const MyContext = createContext([]);
 
 export default function CartContext({children}) {
     
@@ -19,8 +19,9 @@ export default function CartContext({children}) {
         carrito[i][3] += parseInt(quantity);
       }
     }
+    
     if (!found){
-      carrito.push([item.id, item.nombre, item.precio, quantity]);
+      setCarrito([...carrito, {...item, qty: quantity}]);
     }
   };
 

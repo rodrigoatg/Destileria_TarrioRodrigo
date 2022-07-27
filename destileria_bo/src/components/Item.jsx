@@ -6,8 +6,6 @@ export default function Item(props) {
     //aca tenemos que tener la vista del item (id , title, description, price, pictureUrl)
     //function Itemk(Item)
 
-  console.log("item", props)
-
   return (
     <>
       <div >

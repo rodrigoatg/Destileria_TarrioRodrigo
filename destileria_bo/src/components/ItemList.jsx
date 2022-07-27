@@ -1,6 +1,6 @@
 import Item from './Item';
 
-export default function ItemList(items, cantidad) {
+export default function ItemList(items) {
 //dibuja cada item pasado por props utilizando el componente Item
   let itemConvertido = [];
 

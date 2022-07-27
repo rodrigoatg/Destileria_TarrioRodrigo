@@ -14,20 +14,16 @@ export default function ItemListContainer() {
     const [resultado, setResultado] = useState([]);
 
     const filtro = (useParams().categoria||"vacio");
-    // console.log(filtro);
+    
     useEffect(() => {
         const db = getFirestore();
         const coleccion = 'items';
         const itemsCollection = collection(db, coleccion);
-
-        const q = query(
-                itemsCollection,
-            );
         
         const cargandoItems = new Promise((res, rej) => {
             getDocs(itemsCollection)
                 .then((resfb) => {
-                    if(resfb.size == 0){
+                    if(resfb.size === 0){
                         console.log("Sin resultados");
                         //ver de ir a una pagina que muestre que no hay resultados y te deje ir a atras
                     }
@@ -42,11 +38,8 @@ export default function ItemListContainer() {
             //filtro los datos
             let items = {};
             items = resultado;
-            // console.log(items);
-            if(filtro != "vacio"){
-                // console.log("filtramos")
+            if(filtro !== "vacio"){
                 items = resultado.filter(itm => itm.categoria === filtro)
-                // console.log(items);
             }
 
             setResultado(items);
@@ -63,7 +56,6 @@ export default function ItemListContainer() {
         })
     }, []);
     
-    //<ItemList items = {[resultado]} />
     return (
     <>
         <div>{loading && 'Loading...'}</div>

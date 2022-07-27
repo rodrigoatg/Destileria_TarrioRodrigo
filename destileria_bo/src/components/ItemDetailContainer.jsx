@@ -17,7 +17,7 @@ export default function ItemDetailContainer() {
     useEffect(() => {
         const cargandoItems = new Promise((res, rej) => {
             getDoc(docItem).then((resfb) => {
-              res(resfb.data());
+              res({id: resfb.id, ...resfb.data()});
             })
         })
       
